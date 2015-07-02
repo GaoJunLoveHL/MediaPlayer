@@ -1,6 +1,12 @@
 package com.gaojun.MediaPlayer;
 
-public class Music {
+import java.io.Serializable;
+
+public class Music implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private String path;
 	public String getName() {

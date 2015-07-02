@@ -1,20 +1,15 @@
 package com.gaojun.MediaPlayer;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
 import com.gaojun.MediaPlayer.DB.MusicDB;
 
 public class Util {
 
 	private Music music;
-	private List<Music> list;
 	private MusicDB db ;
 
 	public Util(Context context) {
-		list = new ArrayList<Music>();
 		db = MusicDB.getInstance(context);
 	}
 
