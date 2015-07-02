@@ -4,18 +4,21 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.util.Log;
+import android.content.Context;
+import com.gaojun.MediaPlayer.DB.MusicDB;
 
 public class Util {
 
 	private Music music;
 	private List<Music> list;
+	private MusicDB db ;
 
-	public Util() {
+	public Util(Context context) {
 		list = new ArrayList<Music>();
+		db = MusicDB.getInstance(context);
 	}
 
-	public List<Music> getFiles(String root) {
+	public void getFiles(String root) {
 		File file = new File(root);
 		File[] files = file.listFiles();
 
@@ -28,19 +31,19 @@ public class Util {
 						music = new Music();
 						music.setName(f.getName());
 						music.setPath(f.getPath());
-						list.add(music);
+						db.saveMusic(music);
 					}
 				}
 			}
 			
 		} catch (Exception e) {
 		}
-		for(Music m: list){
-			Log.d("List", m.getName());
-			Log.d("List", m.getPath());
-		}
+//		for(Music m: list){
+//			Log.d("List", m.getName());
+//			Log.d("List", m.getPath());
+//		}
 		
-		return list;
+		
 
 	}
 
